@@ -1,0 +1,290 @@
+@import 'config';
+@import 'menu';
+
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @include background;
+  background: lighten($primary-color, 5);
+  color: set-text-color($primary-color);
+  height: 100%;
+  margin: 0;
+  // font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  // font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+// Headings
+h1, h2, h3 {
+  margin: 0;
+  font-weight: 400;
+
+  &.lg-heading {
+    font-size: 6rem;
+  }
+
+  &.sm-heading {
+    margin-bottom: 2rem;
+    padding: 0.2rem 1rem;
+  }
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+header {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+}
+
+.text-secondary {
+  color: $secondary-color;
+}
+
+main {
+  padding-top: 6rem;
+  padding-bottom: 2rem;
+  min-height: calc(100vh - 60px);
+
+  .icons {
+    margin-top: 1rem;
+
+    a {
+      color: set-text-color($primary-color);
+      padding: .4rem;
+
+      &:hover {
+        color: $secondary-color;
+        @include easeOut();
+      }
+    } 
+  }
+
+  &#home {
+    overflow: hidden;
+    h1 {
+      margin-top: 20vh;
+    }
+  }
+}
+
+.about-info {
+  margin: 0 auto;
+  padding-top: 2rem;
+  text-align: left;
+
+  img {
+    height: auto;
+    width: 100%;
+  }
+
+  .bio-image {
+    grid-area: bioimage;
+    margin: auto;
+    border-radius: 50%;
+    border: $secondary-color 3px solid
+  }
+
+  .bio {
+    grid-area: bio;
+    font-size: 1.5rem;
+  }
+
+}
+
+// Work/Projects
+.center {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 40%;
+}
+
+.px2 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.link {
+  color: $secondary-color;
+  text-decoration: none;
+  @include easeOut;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  padding-top: 2rem;
+
+  .project {
+    display: flex;
+    flex-direction: row;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    .project-img {
+      width: 20%;
+      
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 15%;
+      }
+    }
+
+    .project-info {
+      width: 66.66667%;
+      text-align: left;
+
+      h2 {
+        color: $secondary-color;
+      }
+
+      a {
+        font-size: .75rem;
+      }
+    }
+  }
+
+}
+
+.seperator {
+  margin: 2rem auto;
+  width: 100%;
+  background: rgba(lighten($primary-color, 10), 0.9);
+  padding: .025rem;
+  // margin: 1rem;
+
+}
+
+
+.bg-splash {
+  // background-color: #f5f8fa;
+  background: rgba(darken($primary-color, 5), 0.9);
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  width: 100%;
+  display: flex;
+  text-align: left;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: rgba(0,0,0,.125);
+
+  .container {
+    margin: 0 auto;
+  }
+
+  .heading {
+    font-size: 3rem;
+  }
+
+  .sub-heading {
+    color: #aaa;
+    font-weight: 400;
+    font-size: 1.25rem;
+  }
+
+}
+
+// Custom horizontal rule
+hr.custom {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  width: 50%;
+}
+
+// Contact page
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 2rem;
+
+  div {
+    font-size: 2rem;
+    border: 3px #fff solid;
+    padding: 1.5rem 2.5rem;
+    margin-bottom: 3rem;
+    @include easeOut;
+
+    &:hover {
+      padding: 0.5rem 1.5rem;
+      background: $secondary-color;
+      color: set-text-color($secondary-color);
+      span {
+        color: set-text-color($secondary-color);
+      }
+    }
+  }
+}
+
+
+
+// Button Styles
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 0;
+  margin-bottom: 0.3rem;
+  &:hover {
+    background: $secondary-color;
+    color: set-text-color($secondary-color);
+  }
+}
+
+.btn-dark {
+  @extend .btn;
+  background: darken($primary-color, 50);
+  color: #fff;
+}
+
+.btn-light {
+  @extend .btn;
+  background: lighten($primary-color, 50);
+  color: #333;
+}
+
+#main-footer {
+  text-align: center;
+  padding: 1rem;
+  background: darken($primary-color, 10);
+  color: set-text-color($primary-color);
+  height: 60px;
+}
+
+// One-offs
+.bold {
+  font-weight: 900;
+}
+
+.custom-hr {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+@import 'mobile';
